@@ -72,30 +72,4 @@
         </div>
     </div>
 
-    <script>
-        let currentSize = 12;
-        const sizeDisplay = document.getElementById('sizeDisplay');
-        const updateSizeDisplay = () => {
-            sizeDisplay.textContent = `Kích thước hiện tại: ${currentSize}px`;
-            sizeDisplay.style.fontSize = `${currentSize}px`;
-        };
-
-        document.querySelector('.decrease').addEventListener('click', () => {
-            currentSize = Math.max(8, currentSize - 2);
-            updateSizeDisplay();
-        });
-
-        document.querySelector('.increase').addEventListener('click', () => {
-            currentSize = Math.min(36, currentSize + 2);
-            updateSizeDisplay();
-        });
-
-        document.querySelector('.reset').addEventListener('click', () => {
-            currentSize = 12;
-            updateSizeDisplay();
-        });
-
-        updateSizeDisplay();
-    </script>
-</body>
 </html>
