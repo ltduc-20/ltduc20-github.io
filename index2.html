@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Điều chỉnh kích thước font</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f0f0f0; /* Màu nền cho trang */
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            border: 2px solid #000; /* Đường viền cho container */
+            background-color: #fff; /* Màu nền cho container */
+            border-radius: 10px; /* Bo tròn góc cho container */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng cho container */
+        }
+        h1 {
+            background-color: green;
+            color: white;
+            width: 100%;
+            text-align: center;
+            margin: 0;
+            padding: 10px 0;
+        }
+        .size-display {
+            margin: 20px 0;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            border-top: 2px solid #000; /* Đường viền ngang */
+            padding-top: 10px; /* Khoảng cách từ đường viền tới các nút */
+        }
+        button {
+            margin: 0 5px;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border: 2px solid black; /* Đường viền màu đen cố định */
+            border-radius: 5px; /* Bo tròn góc cho nút */
+            transition: background-color 0.3s; /* Hiệu ứng chuyển màu */
+        }
+        .decrease {
+            background-color: red;
+            color: white;
+        }
+        .increase {
+            background-color: green;
+            color: white;
+        }
+        .reset {
+            background-color: #ddd;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Chọn kích thước</h1> <!-- Tiêu đề với nền màu xanh lá cây -->
+        <p id="sizeDisplay" class="size-display">Kích thước hiện tại: 12px</p>
+        <div class="buttons">
+            <button class="decrease">Giảm</button>
+            <button class="increase">Tăng</button>
+            <button class="reset">Reset</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSize = 12;
+        const sizeDisplay = document.getElementById('sizeDisplay');
+        const updateSizeDisplay = () => {
+            sizeDisplay.textContent = `Kích thước hiện tại: ${currentSize}px`;
+            sizeDisplay.style.fontSize = `${currentSize}px`;
+        };
+
+        document.querySelector('.decrease').addEventListener('click', () => {
+            currentSize = Math.max(8, currentSize - 2);
+            updateSizeDisplay();
+        });
+
+        document.querySelector('.increase').addEventListener('click', () => {
+            currentSize = Math.min(36, currentSize + 2);
+            updateSizeDisplay();
+        });
+
+        document.querySelector('.reset').addEventListener('click', () => {
+            currentSize = 12;
+            updateSizeDisplay();
+        });
+
+        updateSizeDisplay();
+    </script>
+</body>
+</html>
